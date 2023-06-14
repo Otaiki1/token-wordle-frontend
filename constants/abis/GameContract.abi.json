@@ -1,0 +1,294 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_rewardPercent",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_rewardAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_stakingToken",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_stakingContract",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_secretKey",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "Error__AlreadyPlayed",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "Error__NotPlayed",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "player",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "startTime",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32[5]",
+        "name": "codedWordArray",
+        "type": "bytes32[5]"
+      }
+    ],
+    "name": "GameStarted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "player",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bool",
+        "name": "isWon",
+        "type": "bool"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_amountWon",
+        "type": "uint256"
+      }
+    ],
+    "name": "PlayedGame",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "REWARD_AMOUNT",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "REWARD_PERCENTAGE",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_letter",
+        "type": "string"
+      }
+    ],
+    "name": "encryptLetter",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_word",
+        "type": "string"
+      }
+    ],
+    "name": "encryptWord",
+    "outputs": [
+      {
+        "internalType": "bytes32[5]",
+        "name": "",
+        "type": "bytes32[5]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "fetchPlayerInfo",
+    "outputs": [
+      {
+        "internalType": "bytes32[5]",
+        "name": "",
+        "type": "bytes32[5]"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "fetchWinners",
+    "outputs": [
+      {
+        "internalType": "address[]",
+        "name": "",
+        "type": "address[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32[5]",
+        "name": "_encryptedWordArray",
+        "type": "bytes32[5]"
+      },
+      {
+        "internalType": "string[5]",
+        "name": "_wordArray",
+        "type": "string[5]"
+      }
+    ],
+    "name": "isCorrect",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "str",
+        "type": "string"
+      }
+    ],
+    "name": "pickCharsFromString",
+    "outputs": [
+      {
+        "internalType": "bytes32[5]",
+        "name": "",
+        "type": "bytes32[5]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32[5]",
+        "name": "_encryptedWordArray",
+        "type": "bytes32[5]"
+      },
+      {
+        "internalType": "string[5]",
+        "name": "_wordArray",
+        "type": "string[5]"
+      }
+    ],
+    "name": "playedGame",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "s_stakingContract",
+    "outputs": [
+      {
+        "internalType": "contract IStaking",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "s_stakingToken",
+    "outputs": [
+      {
+        "internalType": "contract IERC20",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32[5]",
+        "name": "_codedWordArray",
+        "type": "bytes32[5]"
+      }
+    ],
+    "name": "startGame",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
